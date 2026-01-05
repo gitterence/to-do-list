@@ -2,19 +2,19 @@ import { FaRegCircle, FaRegCheckCircle } from "react-icons/fa";
 import { RiDeleteBin2Line } from "react-icons/ri";
 
 
-const TodoItem = ({ id, taskName, isCompleted, removeTodo, toggleTodoStatus }) => {
+const TodoItem = ({ todo, removeTodo, toggleTodoStatus }) => {
     return (
         <div class='flex items-center my-3 gap-2' role="listitem">
             <div
                 class='flex flex-1 items-center cursor-pointer'
-                onClick={() => toggleTodoStatus(id)}
+                onClick={() => toggleTodoStatus(todo.id)}
                 role="button"
-                aria-pressed={isCompleted}
+                aria-pressed={todo.isCompleted}
                 tabIndex={0}
-                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleTodoStatus(id)}
-                aria-label={`Mark "${taskName}" as ${isCompleted ? 'incomplete' : 'complete'}`}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleTodoStatus(todo.id)}
+                aria-label={`Mark "${todo.text}" as ${todo.isCompleted ? 'incomplete' : 'complete'}`}
             >
-                {isCompleted ? (
+                {todo.isCompleted ? (
                     <div class='w-7 text-blue-600'>
                         <FaRegCheckCircle size={21} />
                     </div>
@@ -27,18 +27,18 @@ const TodoItem = ({ id, taskName, isCompleted, removeTodo, toggleTodoStatus }) =
                 )}
 
                 <p class={`ml-4 text-lg text-slate-600 
-                    ${isCompleted ? "line-through opacity-50" : ""}`}>
-                    {taskName}
+                    ${todo.isCompleted ? "line-through opacity-50" : ""}`}>
+                    {todo.text}
                 </p>
             </div>
 
             <div
                 class='w-3.5 cursor-pointer text-slate-400 hover:text-red-500 transition-colors'
-                onClick={() => removeTodo(id)}
+                onClick={() => removeTodo(todo.id)}
                 role="button"
                 tabIndex={0}
-                aria-label={`Delete task "${taskName}"`}
-                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && removeTodo(id)}
+                aria-label={`Delete task "${todo.text}"`}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && removeTodo(todo.id)}
             >
                 <RiDeleteBin2Line size={21} />
             </div>

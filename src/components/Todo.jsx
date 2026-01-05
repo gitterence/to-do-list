@@ -67,9 +67,7 @@ const Todo = () => {
                     todoList.map((item) => {
                         return <TodoItem
                             key={item.id}
-                            id={item.id}
-                            taskName={item.text}
-                            isCompleted={item.isCompleted}
+                            todo={item}
                             removeTodo={removeTodo}
                             toggleTodoStatus={toggleTodo}
                         />
