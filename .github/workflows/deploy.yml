@@ -30,7 +30,7 @@ jobs:
       - name: Setup Node.js 
         uses: actions/setup-node@v6
         with:
-          node-version: 'lts/*'
+          node-version: lts/*
           cache: 'npm'
 
       - name: Install and Build 
@@ -38,10 +38,14 @@ jobs:
           npm ci
           npm run build
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Upload Pages artifact 
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          # Upload dist folder
+          path: './dist'
 
       - name: Deploy to GitHub Pages 
         id: deployment
