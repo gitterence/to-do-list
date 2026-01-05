@@ -11,3 +11,4 @@ In your terminal,
 Run `npm ci` to install node_modules
 
 Run `npm run dev` to run the app
+
