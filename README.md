@@ -4,6 +4,10 @@ This is a simple to do list app.
 
 ### [Demo link here](https://gitterence.github.io/to-do-list/)
 
+
+![Screenshot](/public/todo-list-example.png)
+
+
 # Development
 
 In your terminal,
