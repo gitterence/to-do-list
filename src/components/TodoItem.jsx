@@ -26,7 +26,7 @@ const TodoItem = ({ todo, removeTodo, toggleTodoStatus }) => {
 
                 )}
 
-                <p class={`ml-4 text-lg text-slate-600 
+                <p class={`ml-4 text-lg text-slate-600 break-words min-w-0 flex-1 
                     ${todo.isCompleted ? "line-through opacity-50" : ""}`}>
                     {todo.text}
                 </p>

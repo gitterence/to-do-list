@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { LuClipboardList } from "react-icons/lu";
 import TodoItem from "./TodoItem";
 import { useTodos } from "../hooks/useTodos";
@@ -8,6 +8,16 @@ const Todo = () => {
 
     const { todoList, addTodo, removeTodo, toggleTodo } = useTodos();
     const inputRef = useRef(null);
+    const listRef = useRef(null);
+
+    useEffect(() => {
+        if (listRef.current) {
+            listRef.current.scrollTo({
+                top: listRef.current.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    }, [todoList.length]);
 
     const handleAdd = () => {
         const inputText = inputRef.current.value.trim();
@@ -21,7 +31,7 @@ const Todo = () => {
     }
 
     return (
-        <div class='bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl' aria-labelledby="todo-title">
+        <div class='bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 h-[550px] rounded-xl' aria-labelledby="todo-title">
             <div class="flex items-center gap-4 mt-6 mb-2">
                 <div class="p-3 bg-blue-50 rounded-2xl border border-blue-100 shadow-sm">
                     <LuClipboardList size={28} class="text-blue-600" />
@@ -57,7 +67,7 @@ const Todo = () => {
                 </div>
             </div>
 
-            <div class='mt-5 flex-1'>
+            <div ref={listRef} class='mt-5 flex-1 overflow-y-auto scrollbar-custom pr-2'>
                 {todoList.length === 0 ? (
                     <div class="flex flex-col items-center justify-center mt-10 text-center opacity-60">
                         <div class="text-5xl mb-4">📝</div>

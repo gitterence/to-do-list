@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .scrollbar-custom {
+        scrollbar-width: thin;
+        scrollbar-color: #bfdbfe transparent;
+        scrollbar-gutter: stable;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+        background-color: #bfdbfe;
+        /* blue-200 */
+        border-radius: 20px;
+    }
+}
