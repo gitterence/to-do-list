@@ -2,7 +2,7 @@ import Todo from "./components/Todo";
 
 const App = () => {
   return (
-    <div class='bg-stone-900 grid py-4 min-h-screen'>
+    <div className='bg-gradient-to-br from-rose-100 via-teal-100 to-sky-100 flex justify-center items-center py-4 min-h-screen w-full overflow-x-hidden'>
       <Todo />
     </div>
   );
