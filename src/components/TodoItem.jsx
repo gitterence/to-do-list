@@ -42,8 +42,7 @@ const TodoItem = ({ todo, removeTodo, toggleTodoStatus }) => {
                 >
                     <p className={`text-lg text-slate-700 break-words min-w-0 cursor-pointer
                         ${todo.isCompleted ? "line-through opacity-40 text-slate-400" : ""}
-                        ${!isExpanded ? "line-clamp-2" : ""}
-                        transition-all duration-300 ease-in-out`}>
+                        ${!isExpanded ? "line-clamp-2" : ""}`}>
                         {todo.text}
                     </p>
                 </div>
